@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  test:
+    cmds:
+      - go test -race ./...
+  build:
+    cmds:
+      - go build main.go -o tf-targeter
+  run:
+    cmds:
+      - go run main.go {{.CLI_ARGS}}
+
+  install:
+    cmds:
+      - go install
